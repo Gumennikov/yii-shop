@@ -6,6 +6,10 @@ use core\entities\user\User;
 
 class UserRepository
 {
+    public function getById(string $id): User
+    {
+        return $this->getBy(['id' => $id]);
+    }
     public function getByEmail(string $email): User
     {
         return $this->getBy(['email' => $email]);

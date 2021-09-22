@@ -17,4 +17,5 @@ return [
             //'useMemcached' => true,
         ],
     ],
+    'name' => 'РИБСП'
 ];

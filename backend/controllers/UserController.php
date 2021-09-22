@@ -84,6 +84,7 @@ class UserController extends Controller
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
+        //die(var_dump($form->validate()));
         return $this->render('create', [
             'model' => $form,
         ]);
@@ -94,6 +95,7 @@ class UserController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionUpdate($id)
     {
@@ -109,6 +111,7 @@ class UserController extends Controller
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
+        //die(var_dump($form));
         return $this->render('update', [
             'model' => $form,
             'user' => $user,

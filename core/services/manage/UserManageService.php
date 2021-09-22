@@ -21,7 +21,7 @@ class UserManageService
         $user = User::create(
             $form->username,
             $form->email,
-            $form->phone,
+            //$form->phone,
             $form->password
         );
         $this->repository->save($user);
@@ -30,7 +30,7 @@ class UserManageService
 
     public function edit($id, UserEditForm $form): void
     {
-        $user = $this->repository->get($id);
+        $user = $this->repository->getById($id);
         $user->edit(
             $form->username,
             $form->email

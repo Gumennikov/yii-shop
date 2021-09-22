@@ -1,6 +1,6 @@
 <?php
 
-namespace shop\helpers;
+namespace core\helpers;
 
 use core\entities\User\User;
 use yii\helpers\ArrayHelper;
@@ -11,9 +11,9 @@ class UserHelper
     public static function statusList(): array
     {
         return [
-            User::STATUS_DELETED => 'Deleted',
-            User::STATUS_INACTIVE => 'Inactive',
-            User::STATUS_ACTIVE => 'Active',
+            User::STATUS_DELETED => 'Удален',
+            User::STATUS_INACTIVE => 'Не подтвержден',
+            User::STATUS_ACTIVE => 'Активен',
         ];
     }
 

@@ -5,12 +5,11 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+<!--                <img src="--><?//= $directoryAsset ?><!--/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>-->
+                <img src="/img/user.svg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
-
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <p>Администратор</p>
             </div>
         </div>
 
@@ -30,8 +29,15 @@
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => 'Management', 'options' => ['class' => 'header']],
-                    ['label' => 'Users', 'icon' => 'user', 'url' => ['/user/index'], 'active' => $this->context->id == 'user'],
+                    ['label' => 'Управление', 'options' => ['class' => 'header']],
+                    ['label' => 'Пользователи', 'icon' => 'user', 'url' => ['/user/index'], 'active' => $this->context->id == 'user'],
+                    ['label' => 'Верхнее меню', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
+                    ['label' => 'Редактируемый блок', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
+                    ['label' => 'Страницы', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
+                    ['label' => 'Новости', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
+                    ['label' => 'Публикации', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
+                    ['label' => 'О нас', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
+                    ['label' => 'Контакты администратора', 'icon' => 'bars', 'url' => ['#'], 'active' => $this->context->id == ''],
                 ],
             ]
         ) ?>
