@@ -2,7 +2,6 @@
 
 namespace core\repositories;
 
-
 use core\entities\user\User;
 
 class UserRepository
@@ -36,7 +35,7 @@ class UserRepository
 
     private function getBy(array $condition): User
     {
-        if (!$user = User::find()->andWhere($condition)->limit(1)->one()) {
+        if (!$user = User::findOne([$condition])) {
             throw new NotFoundException('User not found.');
         }
         return $user;
@@ -44,11 +43,15 @@ class UserRepository
 
     public function findByNetworkIdentity($network, $identity): ?User
     {
-        return User::find()->joinWith('networks n')->andWhere(['n.network' => $network, 'n.identity' => $identity])->one();
+        $user = User::find()->joinWith('networks n')->andWhere(['n.network' => $network, 'n.identity' => $identity])->one();
+        if ($user) {
+            return User::findOne(['id' => $user->getId()]);
+        }
+        throw new NotFoundException('User not found.');
     }
 
     public function findByUsernameOrEmail($value): ?User
     {
-        return User::find()->andWhere(['or', ['username' => $value], ['email' => $value]])->one();
+        return User::find()->where(['OR', ['username' => $value], ['email' => $value]])->limit(1)->one();
     }
 }

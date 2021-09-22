@@ -7,6 +7,6 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     'user.passwordMinLength' => 6,
     'cookieDomain' => '.example.com',
-    'backendHostInfo' => 'http://backend.example.com',
-    'frontendHostInfo' => 'http://example.com',
+    'backendHostInfo' => 'http://backend.yii-rewi.localhost',
+    'frontendHostInfo' => 'http://yii-rewi.localhost',
 ];

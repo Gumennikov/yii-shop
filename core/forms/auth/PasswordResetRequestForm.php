@@ -2,9 +2,8 @@
 
 namespace core\forms\auth;
 
-use Yii;
 use yii\base\Model;
-use core\entities\User;
+use core\entities\user\User;
 
 /**
  * Password reset request form
@@ -12,7 +11,6 @@ use core\entities\User;
 class PasswordResetRequestForm extends Model
 {
     public $email;
-
 
     /**
      * {@inheritdoc}
@@ -24,7 +22,6 @@ class PasswordResetRequestForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                //'targetClass' => '\common\entities\User',
                 'targetClass' => User::class,
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with this email address.'
